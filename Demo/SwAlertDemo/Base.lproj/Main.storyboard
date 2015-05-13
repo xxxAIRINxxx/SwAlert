@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cqI-EF-Apd">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="hHt-3a-nDV">
+            <objects>
+                <viewController id="cqI-EF-Apd" customClass="ViewController" customModule="SwAlertDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CS3-CI-Vud"/>
+                        <viewControllerLayoutGuide type="bottom" id="9eH-ZA-lWs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S8G-Qf-gr1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfk-F6-n2F">
+                                <rect key="frame" x="93" y="132" width="188" height="404"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O66-B2-VAj">
+                                        <rect key="frame" x="48" y="88" width="93" height="30"/>
+                                        <state key="normal" title="Single Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="singleButtonAlert" destination="cqI-EF-Apd" eventType="touchUpInside" id="5cJ-OB-jRx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfC-wk-MZU">
+                                        <rect key="frame" x="45" y="138" width="99" height="30"/>
+                                        <state key="normal" title="Double Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doubleButtonAlert" destination="cqI-EF-Apd" eventType="touchUpInside" id="cab-ox-J6l"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3U-73-V5D">
+                                        <rect key="frame" x="51" y="196" width="87" height="30"/>
+                                        <state key="normal" title="Triple Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tripleButtonAlert" destination="cqI-EF-Apd" eventType="touchUpInside" id="lcK-as-zOv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaS-5N-3HY">
+                                        <rect key="frame" x="60" y="42" width="68" height="30"/>
+                                        <state key="normal" title="No Action">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noActionButtonAlert" destination="cqI-EF-Apd" eventType="touchUpInside" id="nur-1f-G4H"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGS-ZJ-GNq">
+                                        <rect key="frame" x="38" y="247" width="112" height="30"/>
+                                        <state key="normal" title="Roll Alert">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rollAlert" destination="cqI-EF-Apd" eventType="touchUpInside" id="s0x-Q4-D3P"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="keyboard" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-EF-cUr">
+                                        <rect key="frame" x="46" y="332" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLt-Tp-HXZ">
+                                        <rect key="frame" x="79" y="290" width="30" height="30"/>
+                                        <state key="normal" title="Text">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="textAlert" destination="cqI-EF-Apd" eventType="touchUpInside" id="n0z-XE-bf4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="Uzc-zM-Cwe"/>
+                                    <constraint firstAttribute="height" constant="404" id="Voc-Se-E1m"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Hfk-F6-n2F" secondAttribute="centerX" id="NqD-Pu-3zB"/>
+                            <constraint firstAttribute="centerY" secondItem="Hfk-F6-n2F" secondAttribute="centerY" id="yH0-gP-3ZT"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbW-k3-EFn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328.5" y="428.5"/>
+        </scene>
+    </scenes>
+</document>
