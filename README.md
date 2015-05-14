@@ -1,9 +1,9 @@
 # SwAlert
 
-[![CI Status](http://img.shields.io/travis/Airin/ARNAlert.svg?style=flat)](https://travis-ci.org/xxxAIRINxxx/SwAlert)
-[![Version](https://img.shields.io/cocoapods/v/ARNAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
-[![License](https://img.shields.io/cocoapods/l/ARNAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
-[![Platform](https://img.shields.io/cocoapods/p/ARNAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
+[![CI Status](http://img.shields.io/travis/Airin/SwAlert.svg?style=flat)](https://travis-ci.org/xxxAIRINxxx/SwAlert)
+[![Version](https://img.shields.io/cocoapods/v/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
+[![License](https://img.shields.io/cocoapods/l/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
+[![Platform](https://img.shields.io/cocoapods/p/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 
 Wrapper of UIAlertView & UIAlertController. (Swift-lang)
 
