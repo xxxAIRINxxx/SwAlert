@@ -142,12 +142,10 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         for alertInfo in self.otherButtonHandlers {
             var handler = alertInfo.completion
             let action = UIAlertAction(title: alertInfo.title, style: .Default, handler: { (action) -> Void in
-                if let _handler = handler {
-                    if alertController.textFields?.count > 0 {
-                        _handler(resultObject: alertController.textFields)
-                    } else {
-                        _handler(resultObject: action)
-                    }
+                if alertController.textFields?.count > 0 {
+                    handler?(resultObject: alertController.textFields)
+                } else {
+                    handler?(resultObject: action)
                 }
                 SwAlert.dismiss()
             })
@@ -157,9 +155,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         if self.cancelInfo != nil {
             var handler = self.cancelInfo!.completion
             let action = UIAlertAction(title: self.cancelInfo!.title, style: .Cancel, handler: { (action) -> Void in
-                if let _handler = handler {
-                    _handler(resultObject: action)
-                }
+                handler?(resultObject: action)
                 SwAlert.dismiss()
             })
             alertController.addAction(action)
@@ -283,9 +279,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         }
         
         if self.cancelInfo != nil && buttonIndex == alertView.cancelButtonIndex {
-            if let _handler = self.cancelInfo!.completion {
-                _handler(resultObject: result)
-            }
+            self.cancelInfo!.completion?(resultObject: result)
         } else {
             var resultIndex = buttonIndex
             if self.textFieldInfo.count > 0 || self.cancelInfo != nil {
@@ -294,9 +288,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
             
             if self.otherButtonHandlers.count > resultIndex {
                 let alertInfo = self.otherButtonHandlers[resultIndex]
-                if let _handler = alertInfo.completion {
-                    _handler(resultObject: result)
-                }
+                alertInfo.completion?(resultObject: result)
             }
         }
         
