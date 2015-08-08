@@ -142,12 +142,12 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         for alertInfo in self.otherButtonHandlers {
             var handler = alertInfo.completion
             let action = UIAlertAction(title: alertInfo.title, style: .Default, handler: { (action) -> Void in
+                SwAlert.dismiss()
                 if alertController.textFields?.count > 0 {
                     handler?(resultObject: alertController.textFields)
                 } else {
                     handler?(resultObject: action)
                 }
-                SwAlert.dismiss()
             })
             alertController.addAction(action)
         }
@@ -155,8 +155,8 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         if self.cancelInfo != nil {
             var handler = self.cancelInfo!.completion
             let action = UIAlertAction(title: self.cancelInfo!.title, style: .Cancel, handler: { (action) -> Void in
-                handler?(resultObject: action)
                 SwAlert.dismiss()
+                handler?(resultObject: action)
             })
             alertController.addAction(action)
         } else if self.otherButtonHandlers.count == 0 {
