@@ -15,6 +15,9 @@ private class AlertManager {
     static var sharedInstance = AlertManager()
     
     var window : UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+    var alertQueue : [SwAlert] = []
+    var showingAlertView : SwAlert?
+    
     lazy var parentController : UIViewController = {
         var parentController = UIViewController()
         parentController.view.backgroundColor = UIColor.clearColor()
@@ -26,9 +29,6 @@ private class AlertManager {
         
         return parentController
     }()
-    
-    var alertQueue : [SwAlert] = []
-    var showingAlertView : SwAlert?
 }
 
 private class AlertInfo {
@@ -49,6 +49,7 @@ private class AlertInfo {
 }
 
 public class SwAlert: NSObject, UIAlertViewDelegate {
+    
     private var title : String = ""
     private var message : String = ""
     private var cancelInfo : AlertInfo?
@@ -112,7 +113,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         }
     }
     
-    // MARK: - Private
+    // MARK: - Private Methods
     
     private class func dismiss() {
         if #available(iOS 8.0, *) {
@@ -256,13 +257,11 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     public func willPresentAlertView(alertView: UIAlertView) {
-        if self.textFieldInfo.count > 0 {
-            for index in 0..<self.textFieldInfo.count {
-                if let textField = alertView.textFieldAtIndex(index) {
-                    let alertInfo = self.textFieldInfo[index]
-                    textField.placeholder = alertInfo.placeholder
-                    textField.text = alertInfo.title
-                }
+        for index in 0..<self.textFieldInfo.count {
+            if let textField = alertView.textFieldAtIndex(index) {
+                let alertInfo = self.textFieldInfo[index]
+                textField.placeholder = alertInfo.placeholder
+                textField.text = alertInfo.title
             }
         }
     }
