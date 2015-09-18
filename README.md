@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 [![Platform](https://img.shields.io/cocoapods/p/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 
-Wrapper of UIAlertView & UIAlertController. (Swift-lang)
+Wrapper of UIAlertView & UIAlertController. written in Swift.
 
 ## Usage
 
@@ -84,8 +84,7 @@ alert.show()
 ## Requirements
 
 * iOS 7.0+
-* Swift lang 1.2+
-* ARC
+* Swift 2.0
 * CocoaPods 0.36+ (if you needed)
 
 ## Installation
@@ -104,4 +103,4 @@ it, simply add the following line to your Podfile:
 
 ## License
 
-SwAlert is available under the MIT license. See the LICENSE file for more info.
+MIT license. See the LICENSE file for more info.
