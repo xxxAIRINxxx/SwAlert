@@ -127,9 +127,12 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     
     @available(iOS 8.0, *)
     private func showAlertController() {
-        if AlertManager.sharedInstance.parentController.presentedViewController != nil {
-           AlertManager.sharedInstance.alertQueue.append(self)
+        if AlertManager.sharedInstance.window.keyWindow {
+            AlertManager.sharedInstance.alertQueue.append(self)
             return
+        } else {
+            AlertManager.sharedInstance.window.alpha = 1.0
+            AlertManager.sharedInstance.window.makeKeyAndVisible()
         }
         
         let alertController = UIAlertController(title: self.title, message: self.message, preferredStyle: .Alert)
@@ -175,24 +178,24 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
             }
         }
         
-        if AlertManager.sharedInstance.window.keyWindow == false {
-            AlertManager.sharedInstance.window.alpha = 1.0
-            AlertManager.sharedInstance.window.makeKeyAndVisible()
-        }
-        
         AlertManager.sharedInstance.parentController.presentViewController(alertController, animated: true, completion: nil)
     }
     
     @available(iOS 8.0, *)
     private class func dismissAlertController() {
+        if AlertManager.sharedInstance.window.keyWindow {
+            AlertManager.sharedInstance.window.alpha = 0.0
+            if let _delegate = UIApplication.sharedApplication().delegate {
+                if let _window = _delegate.window {
+                    _window?.makeKeyAndVisible()
+                }
+            }
+        }
+        
         if AlertManager.sharedInstance.alertQueue.count > 0 {
             let alert = AlertManager.sharedInstance.alertQueue[0]
             AlertManager.sharedInstance.alertQueue.removeAtIndex(0)
             alert.show()
-        } else {
-            AlertManager.sharedInstance.window.alpha = 0.0
-            let mainWindow = UIApplication.sharedApplication().delegate?.window
-            mainWindow!!.makeKeyAndVisible()
         }
     }
     
