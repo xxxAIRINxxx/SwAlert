@@ -98,7 +98,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
             self.textFieldInfo.append(alertInfo)
         } else {
             if self.textFieldInfo.count >= 2 {
-                assert(true, "iOS7 is 2 textField max")
+                assert(true, "iOS7 Alert textFields upper limit is two")
             } else {
                 self.textFieldInfo.append(alertInfo)
             }
