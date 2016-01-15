@@ -8,13 +8,40 @@
 
 import UIKit
 
-public typealias CompletionHandler = (resultObject: AnyObject!) -> Void
+public typealias CompletionHandler = (Result -> Void)
+
+public enum AlertButtonType {
+    case Cancel(title: String)
+    case Other(title: String)
+    case TextField(text: String, placeholder: String?)
+}
+
+extension AlertButtonType: Equatable { }
+
+public func ==(lhs: AlertButtonType, rhs: AlertButtonType) -> Bool {
+    switch (lhs, rhs) {
+    case (.Cancel(let buttonTitleL), .Cancel(let buttonTitleR)):
+        return buttonTitleL == buttonTitleR
+    case (.Other(let buttonTitleL), .Other(let buttonTitleR)):
+        return buttonTitleL == buttonTitleR
+    case (.TextField(_, _), .TextField(_, _)):
+        return true
+    default:
+        return false
+    }
+}
+
+public enum Result {
+    case Cancel
+    case Other(inputText: [String])
+}
 
 private class AlertManager {
     
-    static var sharedInstance = AlertManager()
+    static let sharedInstance = AlertManager()
     
-    var window : UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+    let window : UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+    
     var alertQueue : [SwAlert] = []
     var showingAlertView : SwAlert?
     
@@ -22,87 +49,67 @@ private class AlertManager {
         var parentController = UIViewController()
         parentController.view.backgroundColor = UIColor.clearColor()
         
-        if #available(iOS 8.0, *) {
-            self.window.windowLevel = UIWindowLevelAlert
-            self.window.rootViewController = parentController
-        }
+        self.window.windowLevel = UIWindowLevelAlert
+        self.window.rootViewController = parentController
         
         return parentController
     }()
 }
 
-private class AlertInfo {
-    var title : String = ""
-    var placeholder : String = ""
-    var completion : CompletionHandler?
+private struct AlertInfo {
     
-    class func generate(title: String, placeholder: String?, completion: CompletionHandler?) -> AlertInfo {
-        let alertInfo = AlertInfo()
-        alertInfo.title = title
-        if placeholder != nil {
-            alertInfo.placeholder = placeholder!
-        }
-        alertInfo.completion = completion
-        
-        return alertInfo
+    let type : AlertButtonType
+    let completion : CompletionHandler?
+    
+    init(type: AlertButtonType, completion: CompletionHandler?) {
+        self.type = type
+        self.completion = completion
     }
 }
 
-public class SwAlert: NSObject, UIAlertViewDelegate {
+public final class SwAlert: NSObject, UIAlertViewDelegate {
     
-    private var title : String = ""
-    private var message : String = ""
+    private let title : String
+    private let message : String
+    
+    private var alertInfo : [AlertInfo] = []
     private var cancelInfo : AlertInfo?
-    private var otherButtonHandlers : [AlertInfo] = []
-    private var textFieldInfo : [AlertInfo] = []
     
     // MARK: - Static Functions
     
     public static func showNoActionAlert(title: String, message: String, buttonTitle: String) {
-        let alert = SwAlert()
-        alert.title = title
-        alert.message = message
-        alert.cancelInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: nil)
+        let alert = SwAlert(title: title, message: message)
+        alert.cancelInfo = AlertInfo(type: .Cancel(title: buttonTitle), completion: nil)
         alert.show()
     }
     
     public static func showOneActionAlert(title: String, message: String, buttonTitle: String, completion: CompletionHandler?) {
-        let alert = SwAlert()
-        alert.title = title
-        alert.message = message
-        alert.cancelInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: completion)
+        let alert = SwAlert(title: title, message: message)
+        alert.cancelInfo = AlertInfo(type: .Other(title: buttonTitle), completion: completion)
         alert.show()
     }
     
-    public static func generate(title: String, message: String) -> SwAlert {
-        let alert = SwAlert()
-        alert.title = title
-        alert.message = message
-        return alert
+    // MARK: - Initializer
+    
+    public init(title: String?, message: String?) {
+        self.title = title ?? ""
+        self.message = message ?? ""
     }
     
     // MARK: - Instance Functions
     
     public func setCancelAction(buttonTitle: String, completion: CompletionHandler?) {
-        self.cancelInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: completion)
+        self.cancelInfo = AlertInfo(type: .Cancel(title: buttonTitle), completion: completion)
     }
     
     public func addAction(buttonTitle: String, completion: CompletionHandler?) {
-        let alertInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: completion)
-        self.otherButtonHandlers.append(alertInfo)
+        let alertInfo = AlertInfo(type: .Other(title: buttonTitle), completion: completion)
+        self.alertInfo.append(alertInfo)
     }
     
-    public func addTextField(title: String, placeholder: String?) {
-        let alertInfo = AlertInfo.generate(title, placeholder: placeholder, completion: nil)
-        if #available(iOS 8.0, *) {
-            self.textFieldInfo.append(alertInfo)
-        } else {
-            if self.textFieldInfo.count >= 2 {
-                assert(true, "iOS7 Alert textFields upper limit is two")
-            } else {
-                self.textFieldInfo.append(alertInfo)
-            }
-        }
+    public func addTextField(text: String, placeholder: String?) {
+        let alertInfo = AlertInfo(type: .TextField(text: text, placeholder: placeholder), completion: nil)
+        self.alertInfo.append(alertInfo)
     }
     
     public func show() {
@@ -137,45 +144,44 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         
         let alertController = UIAlertController(title: self.title, message: self.message, preferredStyle: .Alert)
         
-        self.textFieldInfo.forEach() { info in
-            alertController.addTextFieldWithConfigurationHandler({ textField -> Void  in
-                textField.placeholder = info.placeholder
-                textField.text = info.title
-            })
-        }
-        
-        self.otherButtonHandlers.forEach () {
-            let handler = $0.completion
-            let action = UIAlertAction(title: $0.title, style: .Default, handler: { (action) -> Void in
-                SwAlert.dismiss()
-                if alertController.textFields?.count > 0 {
-                    handler?(resultObject: alertController.textFields)
-                } else {
-                    handler?(resultObject: action)
-                }
-            })
-            alertController.addAction(action)
-        }
-        
         if let _cancelInfo = self.cancelInfo {
-            let handler = _cancelInfo.completion
-            let action = UIAlertAction(title: _cancelInfo.title, style: .Cancel, handler: { (action) -> Void in
+            self.alertInfo.append(_cancelInfo)
+            self.cancelInfo = nil
+        }
+        
+        self.alertInfo.forEach() { info in
+            switch info.type {
+            case .Cancel(let buttonTitle):
+                let action = UIAlertAction(title: buttonTitle, style: .Cancel, handler: { action in
+                    SwAlert.dismiss()
+                    
+                    info.completion?(.Cancel)
+                })
+                alertController.addAction(action)
+            case .Other(let buttonTitle):
+                let action = UIAlertAction(title: buttonTitle, style: .Default, handler: { action in
+                    SwAlert.dismiss()
+                    
+                    var inputText: [String] = []
+                    alertController.textFields?.forEach() {
+                        inputText.append($0.text ?? "")
+                    }
+                    info.completion?(.Other(inputText: inputText))
+                })
+                alertController.addAction(action)
+            case .TextField(let text, let placeholder):
+                alertController.addTextFieldWithConfigurationHandler({ textField in
+                    textField.text = text
+                    textField.placeholder = placeholder
+                })
+            }
+        }
+        
+        if self.alertInfo.count == 0 {
+            let action = UIAlertAction(title: "OK", style: .Default, handler: { action in
                 SwAlert.dismiss()
-                handler?(resultObject: action)
             })
             alertController.addAction(action)
-        } else if self.otherButtonHandlers.count == 0 {
-            if self.textFieldInfo.count > 0 {
-                let action = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
-                    SwAlert.dismiss()
-                })
-                alertController.addAction(action)
-            } else {
-                let action = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                    SwAlert.dismiss()
-                })
-                alertController.addAction(action)
-            }
         }
         
         AlertManager.sharedInstance.parentController.presentViewController(alertController, animated: true, completion: nil)
@@ -208,25 +214,47 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
             return
         }
         
-        if self.cancelInfo == nil && self.textFieldInfo.count > 0 {
-            self.cancelInfo = AlertInfo.generate("Cancel", placeholder: nil, completion: nil)
+        var cancelButtonTitle: String = "Cancel"
+        var otherButtonTitles: [String] = []
+        var textFieldCount: Int = 0
+        
+        if let _cancelInfo = self.cancelInfo {
+            switch _cancelInfo.type {
+            case .Cancel(let buttonTitle):
+                cancelButtonTitle = buttonTitle
+            default:
+                break
+            }
         }
         
-        var cancelButtonTitle: String?
-        if self.cancelInfo != nil {
-            cancelButtonTitle = self.cancelInfo!.title
+        self.alertInfo.forEach() { info in
+            switch info.type {
+            case .Cancel(_):
+                break
+            case .Other(let buttonTitle):
+                otherButtonTitles.append(buttonTitle)
+            case .TextField(_, _):
+                textFieldCount++
+            }
+        }
+        
+        if self.cancelInfo == nil && self.alertInfo.count == 0 {
+            UIAlertView(title: self.title, message: self.message, delegate: nil, cancelButtonTitle: "OK").show()
+            return
         }
         
         let alertView = UIAlertView(title: self.title, message: self.message, delegate: self, cancelButtonTitle: cancelButtonTitle)
         
-        for alertInfo in self.otherButtonHandlers {
-            alertView.addButtonWithTitle(alertInfo.title)
+        otherButtonTitles.forEach() { buttonTitle in
+            alertView.addButtonWithTitle(buttonTitle)
         }
         
-        if self.textFieldInfo.count == 1 {
+        if textFieldCount == 1 {
             alertView.alertViewStyle = .PlainTextInput
-        } else if self.textFieldInfo.count == 2 {
+        } else if textFieldCount == 2 {
             alertView.alertViewStyle = .LoginAndPasswordInput
+        } else if textFieldCount >= 3 {
+            assert(true, "iOS7 Alert textFields upper limit is 2")
         }
         
         AlertManager.sharedInstance.showingAlertView = self
@@ -248,7 +276,9 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     // The field at index 0 will be the first text field (the single field or the login field), the field at index 1 will be the password field.
     
     public func alertViewShouldEnableFirstOtherButton(alertView: UIAlertView) -> Bool {
-        if self.textFieldInfo.count > 0 {
+        let textFieldInfo = self.alertInfo.filter() { $0.type == .TextField(text: "", placeholder: nil) }
+        
+        if textFieldInfo.count > 0 {
             if let textField = alertView.textFieldAtIndex(0) {
                 switch textField.text {
                 case nil : return false
@@ -260,40 +290,43 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     public func willPresentAlertView(alertView: UIAlertView) {
-        for index in 0..<self.textFieldInfo.count {
+        let textFieldInfo = self.alertInfo.filter() { $0.type == .TextField(text: "", placeholder: nil) }
+        
+        for index in 0..<textFieldInfo.count {
             if let textField = alertView.textFieldAtIndex(index) {
-                let alertInfo = self.textFieldInfo[index]
-                textField.placeholder = alertInfo.placeholder
-                textField.text = alertInfo.title
+                let info = textFieldInfo[index]
+                switch info.type {
+                case .TextField(let text, let placeholder):
+                    textField.text = text
+                    textField.placeholder = placeholder
+                default:
+                    break
+                }
             }
         }
     }
     
     public func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        var result : AnyObject? = alertView
+        let textFieldInfo = self.alertInfo.filter() { $0.type == .TextField(text: "", placeholder: nil) }
         
-        if self.textFieldInfo.count > 0 {
-            var textFields : [UITextField] = []
-            for index in 0..<self.textFieldInfo.count {
-                let textField = alertView.textFieldAtIndex(index)
-                if textField != nil {
-                    textFields.append(textField!)
-                }
+        var inputText: [String] = []
+        for index in 0..<textFieldInfo.count {
+            if let textField = alertView.textFieldAtIndex(index) {
+                inputText.append(textField.text ?? "")
             }
-            result = textFields
         }
         
-        if self.cancelInfo != nil && buttonIndex == alertView.cancelButtonIndex {
-            self.cancelInfo!.completion?(resultObject: result)
+        if buttonIndex == alertView.cancelButtonIndex {
+            self.cancelInfo?.completion?(.Cancel)
         } else {
             var resultIndex = buttonIndex
-            if self.textFieldInfo.count > 0 || self.cancelInfo != nil {
+            if textFieldInfo.count > 0 || self.cancelInfo != nil {
                 resultIndex--
             }
             
-            if self.otherButtonHandlers.count > resultIndex {
-                let alertInfo = self.otherButtonHandlers[resultIndex]
-                alertInfo.completion?(resultObject: result)
+            if self.alertInfo.count > resultIndex {
+                let alertInfo = self.alertInfo[resultIndex]
+                alertInfo.completion?(.Other(inputText: inputText))
             }
         }
         
