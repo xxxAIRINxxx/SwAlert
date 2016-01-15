@@ -27,7 +27,7 @@ SwAlert.showNoActionAlert("no action title", message: "no action message", butto
 
 ```swift
 
-SwAlert.showOneActionAlert("one action title", message: "no action message", buttonTitle: "button title") { (resultObject) -> Void in
+SwAlert.showOneActionAlert("one action title", message: "no action message", buttonTitle: "button title") { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
     // iOS7 : UIAlertView clickedButtonAtIndex(cancelButtonIndex)
     println("showOneActionAlert completion")
@@ -39,15 +39,15 @@ SwAlert.showOneActionAlert("one action title", message: "no action message", but
 
 ```swift
 
-var alert = SwAlert.generate("double action title", message: "double action message")
+var alert = SwAlert(title: "double action title", message: "double action message")
 
-alert.addAction("double action 1", completion: { (resultObject) -> Void in
+alert.addAction("double action 1", completion: { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleDefault)
     // iOS7 : UIAlertView clickedButtonAtIndex(buttonIndex)
     println("double action 1 completion")
 })
 
-alert.setCancelAction("cancel action", completion: { (resultObject) -> Void in
+alert.setCancelAction("cancel action", completion: { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
     // iOS7 : UIAlertView  clickedButtonAtIndex(cancelButtonIndex)
     println("cancel action completion")
@@ -61,17 +61,13 @@ alert.show()
 
 ```swift
 
-var alert = SwAlert.generate("text action title", message: "text action message")
+var alert = SwAlert(title: "text action title", message: "text action message")
 
 alert.addTextField("text action 1 title", placeholder: "text action 1 placeholder")
 alert.addTextField("text action 2 title", placeholder: "text action 2 placeholder")
-alert.addTextField("text action 3 title", placeholder: "text action 3 placeholder")
 
-alert.addAction("text action", completion: { (resultObject) -> Void in
-    println("text action completion")
-    // iOS8 : resultObject is 3 textFields
-    // iOS7 : resultObject is 2 textFields (iOS7 is max 2 fields)
-    println(resultObject)
+alert.addAction("text action", completion: { result in
+    println(result) // Other(["text action 1 title", "text action 2 title"])
 })
 
 alert.show()
