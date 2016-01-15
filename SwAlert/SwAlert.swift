@@ -58,7 +58,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     
     // MARK: - Class Methods
     
-    class func showNoActionAlert(title: String, message: String, buttonTitle: String) {
+    public static func showNoActionAlert(title: String, message: String, buttonTitle: String) {
         let alert = SwAlert()
         alert.title = title
         alert.message = message
@@ -66,7 +66,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         alert.show()
     }
     
-    class func showOneActionAlert(title: String, message: String, buttonTitle: String, completion: CompletionHandler?) {
+    public static func showOneActionAlert(title: String, message: String, buttonTitle: String, completion: CompletionHandler?) {
         let alert = SwAlert()
         alert.title = title
         alert.message = message
@@ -74,7 +74,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         alert.show()
     }
     
-    class func generate(title: String, message: String) -> SwAlert {
+    public static func generate(title: String, message: String) -> SwAlert {
         let alert = SwAlert()
         alert.title = title
         alert.message = message
@@ -83,16 +83,16 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     
     // MARK: - Instance Methods
     
-    func setCancelAction(buttonTitle: String, completion: CompletionHandler?) {
+    public func setCancelAction(buttonTitle: String, completion: CompletionHandler?) {
         self.cancelInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: completion)
     }
     
-    func addAction(buttonTitle: String, completion: CompletionHandler?) {
+    public func addAction(buttonTitle: String, completion: CompletionHandler?) {
         let alertInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: completion)
         self.otherButtonHandlers.append(alertInfo)
     }
     
-    func addTextField(title: String, placeholder: String?) {
+    public func addTextField(title: String, placeholder: String?) {
         let alertInfo = AlertInfo.generate(title, placeholder: placeholder, completion: nil)
         if #available(iOS 8.0, *) {
             self.textFieldInfo.append(alertInfo)
@@ -105,7 +105,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         }
     }
     
-    func show() {
+    public func show() {
         if #available(iOS 8.0, *) {
             self.showAlertController()
         } else {
@@ -115,7 +115,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     
     // MARK: - Private Methods
     
-    private class func dismiss() {
+    private static func dismiss() {
         if #available(iOS 8.0, *) {
             SwAlert.dismissAlertController()
         } else {
@@ -182,7 +182,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     @available(iOS 8.0, *)
-    private class func dismissAlertController() {
+    private static func dismissAlertController() {
         if AlertManager.sharedInstance.window.keyWindow {
             AlertManager.sharedInstance.window.alpha = 0.0
             if let _delegate = UIApplication.sharedApplication().delegate {
@@ -233,7 +233,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         alertView.show()
     }
     
-    private class func dismissAlertView() {
+    private static func dismissAlertView() {
          AlertManager.sharedInstance.showingAlertView = nil
         
         if AlertManager.sharedInstance.alertQueue.count > 0 {
