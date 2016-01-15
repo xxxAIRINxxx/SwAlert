@@ -1,15 +1,6 @@
-#
-# Be sure to run `pod lib lint SwAlert.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "SwAlert"
-  s.version          = "0.1.4"
+  s.version          = "0.1.5"
   s.summary          = "Wrapper of UIAlertView & UIAlertController. written in Swift."
   s.homepage         = "https://github.com/xxxAIRINxxx/SwAlert"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
