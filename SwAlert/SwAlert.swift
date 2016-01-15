@@ -56,7 +56,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
     private var otherButtonHandlers : [AlertInfo] = []
     private var textFieldInfo : [AlertInfo] = []
     
-    // MARK: - Class Methods
+    // MARK: - Static Functions
     
     public static func showNoActionAlert(title: String, message: String, buttonTitle: String) {
         let alert = SwAlert()
@@ -81,7 +81,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         return alert
     }
     
-    // MARK: - Instance Methods
+    // MARK: - Instance Functions
     
     public func setCancelAction(buttonTitle: String, completion: CompletionHandler?) {
         self.cancelInfo = AlertInfo.generate(buttonTitle, placeholder: nil, completion: completion)
@@ -113,7 +113,7 @@ public class SwAlert: NSObject, UIAlertViewDelegate {
         }
     }
     
-    // MARK: - Private Methods
+    // MARK: - Private Functions
     
     private static func dismiss() {
         if #available(iOS 8.0, *) {
