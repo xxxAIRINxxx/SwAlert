@@ -1,6 +1,5 @@
 # SwAlert
 
-[![CI Status](http://img.shields.io/travis/Airin/SwAlert.svg?style=flat)](https://travis-ci.org/xxxAIRINxxx/SwAlert)
 [![Version](https://img.shields.io/cocoapods/v/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 [![License](https://img.shields.io/cocoapods/l/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 [![Swift 2.1](https://img.shields.io/badge/Swift-2.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
@@ -11,34 +10,28 @@ Wrapper of UIAlertView & UIAlertController. written in Swift.
 
 ## Usage
 
-
 ### Show No Action Alert
 
 ```swift
-
 SwAlert.showNoActionAlert("no action title", message: "no action message", buttonTitle: "button title")
 
 // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
 // iOS7 : UIAlertView clickedButtonAtIndex(cancelButtonIndex)
-
 ```
 
 ### Show Simple Action Alert and CompletionHandler
 
 ```swift
-
 SwAlert.showOneActionAlert("one action title", message: "no action message", buttonTitle: "button title") { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
     // iOS7 : UIAlertView clickedButtonAtIndex(cancelButtonIndex)
     println("showOneActionAlert completion")
 }
-
 ```
 
 ### Show Some Action Alert and CompletionHandler
 
 ```swift
-
 var alert = SwAlert(title: "double action title", message: "double action message")
 
 alert.addAction("double action 1", completion: { result in
@@ -54,13 +47,11 @@ alert.setCancelAction("cancel action", completion: { result in
 })
 
 alert.show()
-
 ```
 
 ### Show Textfield Action Alert and CompletionHandler
 
 ```swift
-
 var alert = SwAlert(title: "text action title", message: "text action message")
 
 alert.addTextField("text action 1 title", placeholder: "text action 1 placeholder")
@@ -71,7 +62,6 @@ alert.addAction("text action", completion: { result in
 })
 
 alert.show()
-
 ```
 
 ## Objc Version
@@ -83,7 +73,7 @@ alert.show()
 
 * Xcode 7.1+
 * iOS 7.0+
-* Swift 2.1
+* Swift 2.1+
 * CocoaPods 0.36+ (if you needed)
 
 ## Installation
@@ -95,10 +85,11 @@ SwAlert.swift source file directly in your project.
 
 ### iOS 8 or later
 
-ARNAlert is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+```ruby
+use_frameworks!
 
-    pod "SwAlert"
+pod "SwAlert"
+```
 
 ## License
 
