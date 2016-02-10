@@ -1,12 +1,13 @@
 //
 //  ViewController.swift
-//  SwAlertDemo
+//  Demo
 //
 //  Created by xxxAIRINxxx on 2015/05/13.
 //  Copyright (c) 2015 xxxAIRINxxx. All rights reserved.
 //
 
 import UIKit
+import SwAlert
 
 class ViewController: UIViewController {
 

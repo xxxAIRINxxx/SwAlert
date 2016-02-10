@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias CompletionHandler = (Result -> Void)
+public typealias CompletionHandler = (SwAlertResult -> Void)
 
 public enum AlertButtonType {
     case Cancel(title: String)
@@ -31,12 +31,12 @@ public func ==(lhs: AlertButtonType, rhs: AlertButtonType) -> Bool {
     }
 }
 
-public enum Result {
+public enum SwAlertResult {
     case Cancel
     case Other(inputText: [String])
 }
 
-private class AlertManager {
+private final class AlertManager {
     
     static let sharedInstance = AlertManager()
     
@@ -129,8 +129,11 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
             SwAlert.dismissAlertView()
         }
     }
-    
-    // MARK: - UIAlertController (iOS 8 or later)
+}
+
+// MARK: - UIAlertController (iOS 8 or later)
+
+extension SwAlert {
     
     @available(iOS 8.0, *)
     private func showAlertController() {
@@ -204,8 +207,11 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
             alert.show()
         }
     }
-    
-    // MARK: - UIAlertView (iOS 7)
+}
+
+// MARK: - UIAlertView (iOS 7)
+
+extension SwAlert {
     
     @available(iOS 7.0, *)
     private func showAlertView() {

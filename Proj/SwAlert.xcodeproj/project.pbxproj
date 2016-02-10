@@ -7,126 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C81B2D6D1B03163400B45C19 /* SwAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = C81B2D6C1B03163400B45C19 /* SwAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C81B2D731B03163400B45C19 /* SwAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81B2D671B03163400B45C19 /* SwAlert.framework */; };
-		C81B2D7A1B03163400B45C19 /* SwAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81B2D791B03163400B45C19 /* SwAlertTests.swift */; };
-		C8BF84231B036BD400677EE9 /* SwAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF84221B036BD400677EE9 /* SwAlert.swift */; };
+		91696F661C6AE21F0071EF18 /* SwAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91696F5B1C6AE21E0071EF18 /* SwAlert.framework */; };
+		91696F6B1C6AE21F0071EF18 /* SwAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91696F6A1C6AE21F0071EF18 /* SwAlertTests.swift */; };
+		91696F971C6AE2CB0071EF18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91696F941C6AE2CB0071EF18 /* Info.plist */; };
+		91696F981C6AE2CB0071EF18 /* SwAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 91696F951C6AE2CB0071EF18 /* SwAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91696F991C6AE2CB0071EF18 /* SwAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91696F961C6AE2CB0071EF18 /* SwAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C81B2D741B03163400B45C19 /* PBXContainerItemProxy */ = {
+		91696F671C6AE21F0071EF18 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C81B2D5E1B03163400B45C19 /* Project object */;
+			containerPortal = 91696F521C6AE21E0071EF18 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C81B2D661B03163400B45C19;
+			remoteGlobalIDString = 91696F5A1C6AE21E0071EF18;
 			remoteInfo = SwAlert;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C81B2D671B03163400B45C19 /* SwAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81B2D6B1B03163400B45C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C81B2D6C1B03163400B45C19 /* SwAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwAlert.h; sourceTree = "<group>"; };
-		C81B2D721B03163400B45C19 /* SwAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81B2D781B03163400B45C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C81B2D791B03163400B45C19 /* SwAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwAlertTests.swift; sourceTree = "<group>"; };
-		C8BF84221B036BD400677EE9 /* SwAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwAlert.swift; sourceTree = "<group>"; };
+		91696F5B1C6AE21E0071EF18 /* SwAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91696F651C6AE21F0071EF18 /* SwAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91696F6A1C6AE21F0071EF18 /* SwAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwAlertTests.swift; sourceTree = "<group>"; };
+		91696F6C1C6AE21F0071EF18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91696F941C6AE2CB0071EF18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91696F951C6AE2CB0071EF18 /* SwAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwAlert.h; sourceTree = "<group>"; };
+		91696F961C6AE2CB0071EF18 /* SwAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C81B2D631B03163400B45C19 /* Frameworks */ = {
+		91696F571C6AE21E0071EF18 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C81B2D6F1B03163400B45C19 /* Frameworks */ = {
+		91696F621C6AE21F0071EF18 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81B2D731B03163400B45C19 /* SwAlert.framework in Frameworks */,
+				91696F661C6AE21F0071EF18 /* SwAlert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C81B2D5D1B03163400B45C19 = {
+		91696F511C6AE21E0071EF18 = {
 			isa = PBXGroup;
 			children = (
-				C81B2D691B03163400B45C19 /* SwAlert */,
-				C81B2D761B03163400B45C19 /* SwAlertTests */,
-				C81B2D681B03163400B45C19 /* Products */,
+				91696F931C6AE2CB0071EF18 /* Source */,
+				91696F691C6AE21F0071EF18 /* SwAlertTests */,
+				91696F5C1C6AE21E0071EF18 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C81B2D681B03163400B45C19 /* Products */ = {
+		91696F5C1C6AE21E0071EF18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C81B2D671B03163400B45C19 /* SwAlert.framework */,
-				C81B2D721B03163400B45C19 /* SwAlertTests.xctest */,
+				91696F5B1C6AE21E0071EF18 /* SwAlert.framework */,
+				91696F651C6AE21F0071EF18 /* SwAlertTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C81B2D691B03163400B45C19 /* SwAlert */ = {
+		91696F691C6AE21F0071EF18 /* SwAlertTests */ = {
 			isa = PBXGroup;
 			children = (
-				C81B2D6C1B03163400B45C19 /* SwAlert.h */,
-				C8BF84221B036BD400677EE9 /* SwAlert.swift */,
-				C81B2D6A1B03163400B45C19 /* Supporting Files */,
-			);
-			path = SwAlert;
-			sourceTree = "<group>";
-		};
-		C81B2D6A1B03163400B45C19 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C81B2D6B1B03163400B45C19 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C81B2D761B03163400B45C19 /* SwAlertTests */ = {
-			isa = PBXGroup;
-			children = (
-				C81B2D791B03163400B45C19 /* SwAlertTests.swift */,
-				C81B2D771B03163400B45C19 /* Supporting Files */,
+				91696F6A1C6AE21F0071EF18 /* SwAlertTests.swift */,
+				91696F6C1C6AE21F0071EF18 /* Info.plist */,
 			);
 			path = SwAlertTests;
 			sourceTree = "<group>";
 		};
-		C81B2D771B03163400B45C19 /* Supporting Files */ = {
+		91696F931C6AE2CB0071EF18 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C81B2D781B03163400B45C19 /* Info.plist */,
+				91696F941C6AE2CB0071EF18 /* Info.plist */,
+				91696F951C6AE2CB0071EF18 /* SwAlert.h */,
+				91696F961C6AE2CB0071EF18 /* SwAlert.swift */,
 			);
-			name = "Supporting Files";
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C81B2D641B03163400B45C19 /* Headers */ = {
+		91696F581C6AE21E0071EF18 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81B2D6D1B03163400B45C19 /* SwAlert.h in Headers */,
+				91696F981C6AE2CB0071EF18 /* SwAlert.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C81B2D661B03163400B45C19 /* SwAlert */ = {
+		91696F5A1C6AE21E0071EF18 /* SwAlert */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C81B2D7D1B03163400B45C19 /* Build configuration list for PBXNativeTarget "SwAlert" */;
+			buildConfigurationList = 91696F6F1C6AE21F0071EF18 /* Build configuration list for PBXNativeTarget "SwAlert" */;
 			buildPhases = (
-				C81B2D621B03163400B45C19 /* Sources */,
-				C81B2D631B03163400B45C19 /* Frameworks */,
-				C81B2D641B03163400B45C19 /* Headers */,
-				C81B2D651B03163400B45C19 /* Resources */,
+				91696F561C6AE21E0071EF18 /* Sources */,
+				91696F571C6AE21E0071EF18 /* Frameworks */,
+				91696F581C6AE21E0071EF18 /* Headers */,
+				91696F591C6AE21E0071EF18 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -134,72 +120,73 @@
 			);
 			name = SwAlert;
 			productName = SwAlert;
-			productReference = C81B2D671B03163400B45C19 /* SwAlert.framework */;
+			productReference = 91696F5B1C6AE21E0071EF18 /* SwAlert.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C81B2D711B03163400B45C19 /* SwAlertTests */ = {
+		91696F641C6AE21F0071EF18 /* SwAlertTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C81B2D801B03163400B45C19 /* Build configuration list for PBXNativeTarget "SwAlertTests" */;
+			buildConfigurationList = 91696F721C6AE21F0071EF18 /* Build configuration list for PBXNativeTarget "SwAlertTests" */;
 			buildPhases = (
-				C81B2D6E1B03163400B45C19 /* Sources */,
-				C81B2D6F1B03163400B45C19 /* Frameworks */,
-				C81B2D701B03163400B45C19 /* Resources */,
+				91696F611C6AE21F0071EF18 /* Sources */,
+				91696F621C6AE21F0071EF18 /* Frameworks */,
+				91696F631C6AE21F0071EF18 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C81B2D751B03163400B45C19 /* PBXTargetDependency */,
+				91696F681C6AE21F0071EF18 /* PBXTargetDependency */,
 			);
 			name = SwAlertTests;
 			productName = SwAlertTests;
-			productReference = C81B2D721B03163400B45C19 /* SwAlertTests.xctest */;
+			productReference = 91696F651C6AE21F0071EF18 /* SwAlertTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C81B2D5E1B03163400B45C19 /* Project object */ = {
+		91696F521C6AE21E0071EF18 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = xxxAIRINxxx;
 				TargetAttributes = {
-					C81B2D661B03163400B45C19 = {
-						CreatedOnToolsVersion = 6.3.1;
+					91696F5A1C6AE21E0071EF18 = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
-					C81B2D711B03163400B45C19 = {
-						CreatedOnToolsVersion = 6.3.1;
+					91696F641C6AE21F0071EF18 = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
-			buildConfigurationList = C81B2D611B03163400B45C19 /* Build configuration list for PBXProject "SwAlert" */;
+			buildConfigurationList = 91696F551C6AE21E0071EF18 /* Build configuration list for PBXProject "SwAlert" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C81B2D5D1B03163400B45C19;
-			productRefGroup = C81B2D681B03163400B45C19 /* Products */;
+			mainGroup = 91696F511C6AE21E0071EF18;
+			productRefGroup = 91696F5C1C6AE21E0071EF18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C81B2D661B03163400B45C19 /* SwAlert */,
-				C81B2D711B03163400B45C19 /* SwAlertTests */,
+				91696F5A1C6AE21E0071EF18 /* SwAlert */,
+				91696F641C6AE21F0071EF18 /* SwAlertTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C81B2D651B03163400B45C19 /* Resources */ = {
+		91696F591C6AE21E0071EF18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91696F971C6AE2CB0071EF18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C81B2D701B03163400B45C19 /* Resources */ = {
+		91696F631C6AE21F0071EF18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,34 +196,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C81B2D621B03163400B45C19 /* Sources */ = {
+		91696F561C6AE21E0071EF18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8BF84231B036BD400677EE9 /* SwAlert.swift in Sources */,
+				91696F991C6AE2CB0071EF18 /* SwAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C81B2D6E1B03163400B45C19 /* Sources */ = {
+		91696F611C6AE21F0071EF18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81B2D7A1B03163400B45C19 /* SwAlertTests.swift in Sources */,
+				91696F6B1C6AE21F0071EF18 /* SwAlertTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C81B2D751B03163400B45C19 /* PBXTargetDependency */ = {
+		91696F681C6AE21F0071EF18 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C81B2D661B03163400B45C19 /* SwAlert */;
-			targetProxy = C81B2D741B03163400B45C19 /* PBXContainerItemProxy */;
+			target = 91696F5A1C6AE21E0071EF18 /* SwAlert */;
+			targetProxy = 91696F671C6AE21F0071EF18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		C81B2D7B1B03163400B45C19 /* Debug */ = {
+		91696F6D1C6AE21F0071EF18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -256,7 +243,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -267,7 +254,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -285,7 +271,7 @@
 			};
 			name = Debug;
 		};
-		C81B2D7C1B03163400B45C19 /* Release */ = {
+		91696F6E1C6AE21F0071EF18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -326,70 +312,54 @@
 			};
 			name = Release;
 		};
-		C81B2D7E1B03163400B45C19 /* Debug */ = {
+		91696F701C6AE21F0071EF18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwAlert/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/../Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xxxAIRINxxx.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = xxxAIRINxxx.SwAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		C81B2D7F1B03163400B45C19 /* Release */ = {
+		91696F711C6AE21F0071EF18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwAlert/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/../Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xxxAIRINxxx.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = xxxAIRINxxx.SwAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		C81B2D811B03163400B45C19 /* Debug */ = {
+		91696F731C6AE21F0071EF18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = SwAlertTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xxxAIRINxxx.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = xxxAIRINxxx.SwAlertTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		C81B2D821B03163400B45C19 /* Release */ = {
+		91696F741C6AE21F0071EF18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = SwAlertTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xxxAIRINxxx.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = xxxAIRINxxx.SwAlertTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -397,34 +367,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C81B2D611B03163400B45C19 /* Build configuration list for PBXProject "SwAlert" */ = {
+		91696F551C6AE21E0071EF18 /* Build configuration list for PBXProject "SwAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C81B2D7B1B03163400B45C19 /* Debug */,
-				C81B2D7C1B03163400B45C19 /* Release */,
+				91696F6D1C6AE21F0071EF18 /* Debug */,
+				91696F6E1C6AE21F0071EF18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C81B2D7D1B03163400B45C19 /* Build configuration list for PBXNativeTarget "SwAlert" */ = {
+		91696F6F1C6AE21F0071EF18 /* Build configuration list for PBXNativeTarget "SwAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C81B2D7E1B03163400B45C19 /* Debug */,
-				C81B2D7F1B03163400B45C19 /* Release */,
+				91696F701C6AE21F0071EF18 /* Debug */,
+				91696F711C6AE21F0071EF18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C81B2D801B03163400B45C19 /* Build configuration list for PBXNativeTarget "SwAlertTests" */ = {
+		91696F721C6AE21F0071EF18 /* Build configuration list for PBXNativeTarget "SwAlertTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C81B2D811B03163400B45C19 /* Debug */,
-				C81B2D821B03163400B45C19 /* Release */,
+				91696F731C6AE21F0071EF18 /* Debug */,
+				91696F741C6AE21F0071EF18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C81B2D5E1B03163400B45C19 /* Project object */;
+	rootObject = 91696F521C6AE21E0071EF18 /* Project object */;
 }
