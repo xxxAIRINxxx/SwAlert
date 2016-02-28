@@ -7,22 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		914598E51C83207800D6D16E /* SwAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 914598E01C83205800D6D16E /* SwAlert.framework */; };
+		914598E61C83207800D6D16E /* SwAlert.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 914598E01C83205800D6D16E /* SwAlert.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91696F821C6AE26B0071EF18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91696F811C6AE26B0071EF18 /* AppDelegate.swift */; };
 		91696F841C6AE26B0071EF18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91696F831C6AE26B0071EF18 /* ViewController.swift */; };
 		91696F871C6AE26B0071EF18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91696F851C6AE26B0071EF18 /* Main.storyboard */; };
 		91696F891C6AE26B0071EF18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91696F881C6AE26B0071EF18 /* Assets.xcassets */; };
-		91696F9B1C6AE3820071EF18 /* SwAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91696F9A1C6AE3820071EF18 /* SwAlert.framework */; };
 		91696F9E1C6AE4AF0071EF18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91696F9C1C6AE4AF0071EF18 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		914598DF1C83205800D6D16E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914598DA1C83205700D6D16E /* SwAlert.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 91696F5B1C6AE21E0071EF18;
+			remoteInfo = SwAlert;
+		};
+		914598E11C83205800D6D16E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914598DA1C83205700D6D16E /* SwAlert.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 91696F651C6AE21F0071EF18;
+			remoteInfo = SwAlertTests;
+		};
+		914598E31C83206A00D6D16E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914598DA1C83205700D6D16E /* SwAlert.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 91696F5A1C6AE21E0071EF18;
+			remoteInfo = SwAlert;
+		};
+		914598E71C83207800D6D16E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 914598DA1C83205700D6D16E /* SwAlert.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 91696F5A1C6AE21E0071EF18;
+			remoteInfo = SwAlert;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		914598E91C83207800D6D16E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				914598E61C83207800D6D16E /* SwAlert.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		914598DA1C83205700D6D16E /* SwAlert.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SwAlert.xcodeproj; sourceTree = "<group>"; };
 		91696F7E1C6AE26B0071EF18 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91696F811C6AE26B0071EF18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91696F831C6AE26B0071EF18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		91696F861C6AE26B0071EF18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91696F881C6AE26B0071EF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91696F8D1C6AE26B0071EF18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91696F9A1C6AE3820071EF18 /* SwAlert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwAlert.framework; path = "../../../Library/Developer/Xcode/DerivedData/SwAlert-fngzzmzefrlcscgdotbephhpcwfz/Build/Products/Debug-iphoneos/SwAlert.framework"; sourceTree = "<group>"; };
 		91696F9D1C6AE4AF0071EF18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,17 +77,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91696F9B1C6AE3820071EF18 /* SwAlert.framework in Frameworks */,
+				914598E51C83207800D6D16E /* SwAlert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		914598DB1C83205700D6D16E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				914598E01C83205800D6D16E /* SwAlert.framework */,
+				914598E21C83205800D6D16E /* SwAlertTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		91696F751C6AE26B0071EF18 = {
 			isa = PBXGroup;
 			children = (
-				91696F9A1C6AE3820071EF18 /* SwAlert.framework */,
+				914598DA1C83205700D6D16E /* SwAlert.xcodeproj */,
 				91696F801C6AE26B0071EF18 /* Demo */,
 				91696F7F1C6AE26B0071EF18 /* Products */,
 			);
@@ -78,10 +133,13 @@
 				91696F7A1C6AE26B0071EF18 /* Sources */,
 				91696F7B1C6AE26B0071EF18 /* Frameworks */,
 				91696F7C1C6AE26B0071EF18 /* Resources */,
+				914598E91C83207800D6D16E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				914598E41C83206A00D6D16E /* PBXTargetDependency */,
+				914598E81C83207800D6D16E /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -114,12 +172,35 @@
 			mainGroup = 91696F751C6AE26B0071EF18;
 			productRefGroup = 91696F7F1C6AE26B0071EF18 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 914598DB1C83205700D6D16E /* Products */;
+					ProjectRef = 914598DA1C83205700D6D16E /* SwAlert.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				91696F7D1C6AE26B0071EF18 /* Demo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		914598E01C83205800D6D16E /* SwAlert.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwAlert.framework;
+			remoteRef = 914598DF1C83205800D6D16E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		914598E21C83205800D6D16E /* SwAlertTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwAlertTests.xctest;
+			remoteRef = 914598E11C83205800D6D16E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		91696F7C1C6AE26B0071EF18 /* Resources */ = {
@@ -145,6 +226,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		914598E41C83206A00D6D16E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwAlert;
+			targetProxy = 914598E31C83206A00D6D16E /* PBXContainerItemProxy */;
+		};
+		914598E81C83207800D6D16E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwAlert;
+			targetProxy = 914598E71C83207800D6D16E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		91696F851C6AE26B0071EF18 /* Main.storyboard */ = {
@@ -251,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -263,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
