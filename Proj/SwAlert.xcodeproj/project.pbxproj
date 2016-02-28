@@ -56,7 +56,7 @@
 		91696F511C6AE21E0071EF18 = {
 			isa = PBXGroup;
 			children = (
-				91696F931C6AE2CB0071EF18 /* Source */,
+				91696F931C6AE2CB0071EF18 /* Sources */,
 				91696F691C6AE21F0071EF18 /* SwAlertTests */,
 				91696F5C1C6AE21E0071EF18 /* Products */,
 			);
@@ -80,15 +80,15 @@
 			path = SwAlertTests;
 			sourceTree = "<group>";
 		};
-		91696F931C6AE2CB0071EF18 /* Source */ = {
+		91696F931C6AE2CB0071EF18 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				91696F941C6AE2CB0071EF18 /* Info.plist */,
 				91696F951C6AE2CB0071EF18 /* SwAlert.h */,
 				91696F961C6AE2CB0071EF18 /* SwAlert.swift */,
 			);
-			name = Source;
-			path = ../Source;
+			name = Sources;
+			path = ../Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,7 +319,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/../Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xxxAIRINxxx.SwAlert;
@@ -335,7 +335,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/../Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xxxAIRINxxx.SwAlert;
