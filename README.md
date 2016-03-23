@@ -2,9 +2,9 @@
 
 [![Version](https://img.shields.io/cocoapods/v/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 [![License](https://img.shields.io/cocoapods/l/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
-[![Swift 2.1](https://img.shields.io/badge/Swift-2.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](https://developer.apple.com/swift/)
-[![Xcode 7.1+](https://img.shields.io/badge/Xcode-7.1+-blue.svg?style=flat)](https://developer.apple.com/swift/)
+[![Xcode 7.3](https://img.shields.io/badge/Xcode-7.3+-blue.svg?style=flat)](https://developer.apple.com/swift/)
 
 Wrapper of UIAlertView & UIAlertController. written in Swift.
 
@@ -71,9 +71,9 @@ alert.show()
 
 ## Requirements
 
-* Xcode 7.1+
 * iOS 7.0+
-* Swift 2.1+
+* Xcode 7.3
+* Swift 2.2+
 * CocoaPods 0.36+ (if you needed)
 
 ## Installation
