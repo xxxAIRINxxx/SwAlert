@@ -240,7 +240,7 @@ extension SwAlert {
             case .Other(let buttonTitle):
                 otherButtonTitles.append(buttonTitle)
             case .TextField(_, _):
-                textFieldCount++
+                textFieldCount += 1
             }
         }
         
@@ -327,7 +327,7 @@ extension SwAlert {
         } else {
             var resultIndex = buttonIndex
             if textFieldInfo.count > 0 || self.cancelInfo != nil {
-                resultIndex--
+                resultIndex -= 1
             }
             
             if self.alertInfo.count > resultIndex {
