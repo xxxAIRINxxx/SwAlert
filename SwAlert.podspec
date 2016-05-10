@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SwAlert"
-  s.version      = "0.2.1"
+  s.version      = "0.2.2"
   s.summary      = "Wrapper of UIAlertView & UIAlertController. written in Swift."
   s.homepage     = "https://github.com/xxxAIRINxxx/SwAlert"
   s.license      = 'MIT'
