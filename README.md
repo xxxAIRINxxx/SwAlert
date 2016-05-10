@@ -34,14 +34,14 @@ SwAlert.showAlert("one action title", message: "no action message", buttonTitle:
 ```swift
 SwAlert(title: "double action title", message: "double action message")
     .addAction("double action 1") { result in
-    // iOS8 : UIAlertController addAction(UIAlertActionStyleDefault)
-    // iOS7 : UIAlertView clickedButtonAtIndex(buttonIndex)
-    println("double action 1 completion")
+        // iOS8 : UIAlertController addAction(UIAlertActionStyleDefault)
+        // iOS7 : UIAlertView clickedButtonAtIndex(buttonIndex)
+        println("double action 1 completion")
     }
     .setCancelAction("cancel action") { result in
-    // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
-    // iOS7 : UIAlertView  clickedButtonAtIndex(cancelButtonIndex)
-    println("cancel action completion")
+        // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
+        // iOS7 : UIAlertView  clickedButtonAtIndex(cancelButtonIndex)
+        println("cancel action completion")
     }
     .show()
 ```
@@ -53,7 +53,7 @@ SwAlert(title: "text action title", message: "text action message")
     .addTextField("text action 1 title", placeholder: "text action 1 placeholder")
     .addTextField("text action 2 title", placeholder: "text action 2 placeholder")
     .addAction("text action") { result in
-    println(result) // Other(["text action 1 title", "text action 2 title"])
+        println(result) // Other(["text action 1 title", "text action 2 title"])
     }
     .show()
 ```
