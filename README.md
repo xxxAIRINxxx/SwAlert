@@ -13,7 +13,7 @@ Wrapper of UIAlertView & UIAlertController. written in Swift.
 ### Show No Action Alert
 
 ```swift
-SwAlert.showNoActionAlert("no action title", message: "no action message", buttonTitle: "button title")
+SwAlert.showAlert("no action title", message: "no action message", buttonTitle: "button title")
 
 // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
 // iOS7 : UIAlertView clickedButtonAtIndex(cancelButtonIndex)
@@ -22,7 +22,7 @@ SwAlert.showNoActionAlert("no action title", message: "no action message", butto
 ### Show Simple Action Alert and CompletionHandler
 
 ```swift
-SwAlert.showOneActionAlert("one action title", message: "no action message", buttonTitle: "button title") { result in
+SwAlert.showAlert("one action title", message: "no action message", buttonTitle: "button title") { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
     // iOS7 : UIAlertView clickedButtonAtIndex(cancelButtonIndex)
     println("showOneActionAlert completion")
@@ -32,36 +32,30 @@ SwAlert.showOneActionAlert("one action title", message: "no action message", but
 ### Show Some Action Alert and CompletionHandler
 
 ```swift
-var alert = SwAlert(title: "double action title", message: "double action message")
-
-alert.addAction("double action 1", completion: { result in
+SwAlert(title: "double action title", message: "double action message")
+    .addAction("double action 1") { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleDefault)
     // iOS7 : UIAlertView clickedButtonAtIndex(buttonIndex)
     println("double action 1 completion")
-})
-
-alert.setCancelAction("cancel action", completion: { result in
+    }
+    .setCancelAction("cancel action") { result in
     // iOS8 : UIAlertController addAction(UIAlertActionStyleCancel)
     // iOS7 : UIAlertView  clickedButtonAtIndex(cancelButtonIndex)
     println("cancel action completion")
-})
-
-alert.show()
+    }
+    .show()
 ```
 
 ### Show Textfield Action Alert and CompletionHandler
 
 ```swift
-var alert = SwAlert(title: "text action title", message: "text action message")
-
-alert.addTextField("text action 1 title", placeholder: "text action 1 placeholder")
-alert.addTextField("text action 2 title", placeholder: "text action 2 placeholder")
-
-alert.addAction("text action", completion: { result in
+SwAlert(title: "text action title", message: "text action message")
+    .addTextField("text action 1 title", placeholder: "text action 1 placeholder")
+    .addTextField("text action 2 title", placeholder: "text action 2 placeholder")
+    .addAction("text action") { result in
     println(result) // Other(["text action 1 title", "text action 2 title"])
-})
-
-alert.show()
+    }
+    .show()
 ```
 
 ## Objc Version
