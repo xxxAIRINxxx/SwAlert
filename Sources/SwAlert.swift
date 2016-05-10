@@ -98,18 +98,21 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
     
     // MARK: - Instance Functions
     
-    public func setCancelAction(buttonTitle: String, completion: CompletionHandler?) {
+    public func setCancelAction(buttonTitle: String, _ completion: CompletionHandler? = nil) -> SwAlert {
         self.cancelInfo = AlertInfo(type: .Cancel(title: buttonTitle), completion: completion)
+        return self
     }
     
-    public func addAction(buttonTitle: String, completion: CompletionHandler?) {
+    public func addAction(buttonTitle: String, _ completion: CompletionHandler? = nil) -> SwAlert {
         let alertInfo = AlertInfo(type: .Other(title: buttonTitle), completion: completion)
         self.alertInfo.append(alertInfo)
+        return self
     }
     
-    public func addTextField(text: String, placeholder: String?) {
+    public func addTextField(text: String, placeholder: String? = nil) -> SwAlert {
         let alertInfo = AlertInfo(type: .TextField(text: text, placeholder: placeholder), completion: nil)
         self.alertInfo.append(alertInfo)
+        return self
     }
     
     public func show() {
