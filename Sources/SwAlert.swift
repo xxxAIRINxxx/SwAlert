@@ -77,15 +77,9 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
     
     // MARK: - Static Functions
     
-    public static func showNoActionAlert(title: String, message: String, buttonTitle: String) {
+    public static func showAlert(title: String?, message: String?, buttonTitle: String, _ completion: CompletionHandler? = nil) {
         let alert = SwAlert(title: title, message: message)
-        alert.cancelInfo = AlertInfo(type: .Cancel(title: buttonTitle), completion: nil)
-        alert.show()
-    }
-    
-    public static func showOneActionAlert(title: String, message: String, buttonTitle: String, completion: CompletionHandler?) {
-        let alert = SwAlert(title: title, message: message)
-        alert.cancelInfo = AlertInfo(type: .Other(title: buttonTitle), completion: completion)
+        alert.cancelInfo = AlertInfo(type: .Cancel(title: buttonTitle), completion: completion)
         alert.show()
     }
     
