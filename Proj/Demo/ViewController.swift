@@ -12,61 +12,60 @@ import SwAlert
 class ViewController: UIViewController {
 
     @IBAction func noActionButtonAlert() {
-        SwAlert.showNoActionAlert("no action title", message: "no action message", buttonTitle: "button title")
+        SwAlert.showAlert("no action title", message: "no action message", buttonTitle: "button title")
     }
     
     @IBAction func singleButtonAlert() {
-        SwAlert.showOneActionAlert("one action title", message: "no action message", buttonTitle: "button title") { result in
+        SwAlert.showAlert("one action title", message: "no action message", buttonTitle: "button title") { result in
             print("showOneActionAlert completion")
         }
     }
     
     @IBAction func doubleButtonAlert() {
-        let alert = SwAlert(title: "double action title", message: "double action message")
-        alert.addAction("double action 1", completion: { result in
-            print("double action 1 completion")
-        })
-        alert.setCancelAction("cancel action", completion: { result in
-            print("cancel action completion")
-        })
-        alert.show()
+        SwAlert(title: "double action title", message: "double action message")
+            .addAction("double action 1") { result in
+                print("double action 1 completion")
+            }
+            .setCancelAction("cancel action") { result in
+                print("cancel action completion")
+            }
+            .show()
     }
     
     @IBAction func tripleButtonAlert() {
-        let alert = SwAlert(title: "triple action title", message: "triple action message")
-        alert.addAction("triple action 1", completion: { result in
-            print("triple action 1 completion")
-        })
-        alert.addAction("triple action 2", completion: { result in
-            print("triple action 2 completion")
-        })
-        alert.setCancelAction("cancel action", completion: { result in
-            print("cancel triple action completion")
-        })
-        alert.show()
+        SwAlert(title: "triple action title", message: "triple action message")
+            .addAction("triple action 1") { result in
+                print("triple action 1 completion")
+            }
+            .addAction("triple action 2") { result in
+                print("triple action 2 completion")
+            }
+            .setCancelAction("cancel action") { result in
+                print("cancel triple action completion")
+            }
+            .show()
     }
     
     @IBAction func rollAlert() {
         for index in 0..<3 {
-            let alert = SwAlert(title: "roll action " + String(index) + " title", message: "roll action " + String(index) + " message")
-            alert.addAction("triple action" + String(index), completion: { result in
-                print("triple action " + String(index) + " completion")
-            })
-            alert.show()
+            SwAlert(title: "roll action " + String(index) + " title", message: "roll action " + String(index) + " message")
+                .addAction("triple action" + String(index)) { result in
+                    print("triple action " + String(index) + " completion")
+                }
+                .show()
         }
     }
     
     @IBAction func textAlert() {
-        let alert = SwAlert(title: "text action title", message: "text action message")
-        alert.addTextField("text action 1 title", placeholder: "text action 1 placeholder")
-        alert.addTextField("text action 2 title", placeholder: "text action 2 placeholder")
-        alert.addTextField("text action 3 title", placeholder: "text action 3 placeholder")
-        alert.addAction("text action", completion: { result in
-            print("text action completion")
-            print(result)
-        })
-        
-        alert.show()
+        SwAlert(title: "text action title", message: "text action message")
+            .addTextField("text action 1 title", placeholder: "text action 1 placeholder")
+            .addTextField("text action 2 title", placeholder: "text action 2 placeholder")
+            .addTextField("text action 3 title", placeholder: "text action 3 placeholder")
+            .addAction("text action") { result in
+                print("text action completion")
+                print(result)
+            }
+            .show()
     }
 }
 
