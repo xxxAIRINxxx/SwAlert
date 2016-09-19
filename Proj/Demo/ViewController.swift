@@ -9,7 +9,7 @@
 import UIKit
 import SwAlert
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBAction func noActionButtonAlert() {
         SwAlert.showAlert("no action title", message: "no action message", buttonTitle: "button title")
