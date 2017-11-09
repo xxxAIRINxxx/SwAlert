@@ -2,9 +2,9 @@
 
 [![Version](https://img.shields.io/cocoapods/v/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
 [![License](https://img.shields.io/cocoapods/l/SwAlert.svg?style=flat)](http://cocoadocs.org/docsets/SwAlert)
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](https://developer.apple.com/swift/)
-[![Xcode 8.0](https://img.shields.io/badge/Xcode-8.0+-blue.svg?style=flat)](https://developer.apple.com/swift/)
+[![Xcode 9.1](https://img.shields.io/badge/Xcode-9.1+-blue.svg?style=flat)](https://developer.apple.com/swift/)
 
 Wrapper of UIAlertController. written in Swift.
 
@@ -64,9 +64,9 @@ SwAlert(title: "text action title", message: "text action message")
 ## Requirements
 
 * iOS 9.0+
-* Xcode 8.0+
-* Swift 3.0+
-* CocoaPods 1.0.1+
+* Xcode 9.1+
+* Swift 4.0+
+* CocoaPods 1.3.0+
 
 ## Installation
 
