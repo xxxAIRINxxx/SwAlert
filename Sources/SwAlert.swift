@@ -41,7 +41,7 @@ private final class AlertManager {
         var parentController = UIViewController()
         parentController.view.backgroundColor = UIColor.clear
         
-        self.window.windowLevel = UIWindowLevelAlert
+        self.window.windowLevel = UIWindow.Level.alert
         self.window.rootViewController = parentController
         
         return parentController
