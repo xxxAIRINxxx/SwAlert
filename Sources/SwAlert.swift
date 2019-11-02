@@ -76,6 +76,9 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
         alert.show()
     }
     
+    
+  
+    
     // MARK: - Initializer
     
     public init(title: String?, message: String?) {
@@ -109,7 +112,11 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     public func show() {
-        self.showAlertController()
+        self.showAlertController(.alert)
+    }
+    
+    public func showAsActionSheet() {
+        self.showAlertController(.actionSheet)
     }
     
     // MARK: - Private Functions
@@ -121,7 +128,7 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
 
 extension SwAlert {
     
-    fileprivate func showAlertController() {
+    fileprivate func showAlertController(_ preferred_style:UIAlertController.Style) {
         if AlertManager.sharedInstance.window.isKeyWindow {
             AlertManager.sharedInstance.alertQueue.append(self)
             return
@@ -130,7 +137,13 @@ extension SwAlert {
             AlertManager.sharedInstance.window.makeKeyAndVisible()
         }
         
-        let alertController = UIAlertController(title: self.title, message: self.message, preferredStyle: .alert)
+        var alertController = UIAlertController(title: self.title == "" ? nil : self.title, message: self.message == "" ? nil : self.message, preferredStyle: preferred_style)
+        
+        // for ipad, override the actionSheet style
+        if let popoverController = alertController.popoverPresentationController {
+            alertController = UIAlertController(title: self.title == "" ? nil : self.title, message: self.message == "" ? nil : self.message, preferredStyle: .alert)
+        }
+        
         
         if let _cancelInfo = self.cancelInfo {
             self.alertInfo.append(_cancelInfo)
@@ -171,7 +184,12 @@ extension SwAlert {
             case .textField(let text, let placeholder):
                 alertController.addTextField(configurationHandler: { textField in
                     textField.text = text
+                    textField.keyboardType = .numbersAndPunctuation
+                    textField.enablesReturnKeyAutomatically = false
                     textField.placeholder = placeholder
+                    if UITraitCollection.current.userInterfaceStyle == .dark {
+                        textField.keyboardAppearance = .dark
+                    }
                 })
             }
         }
@@ -182,6 +200,8 @@ extension SwAlert {
             })
             alertController.addAction(action)
         }
+        
+        
         
         AlertManager.sharedInstance.parentController.present(alertController, animated: true, completion: nil)
     }
