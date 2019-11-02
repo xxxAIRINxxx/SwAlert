@@ -77,7 +77,7 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     
-  
+    
     
     // MARK: - Initializer
     
@@ -100,9 +100,9 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     public func addDestructiveAction(_ buttonTitle: String, _ completion: CompletionHandler? = nil) -> SwAlert {
-      let alertInfo = AlertInfo(type: .destructive(title: buttonTitle), completion: completion)
-      self.alertInfo.append(alertInfo)
-      return self
+        let alertInfo = AlertInfo(type: .destructive(title: buttonTitle), completion: completion)
+        self.alertInfo.append(alertInfo)
+        return self
     }
     
     public func addTextField(_ text: String, placeholder: String? = nil) -> SwAlert {
@@ -187,8 +187,12 @@ extension SwAlert {
                     textField.keyboardType = .numbersAndPunctuation
                     textField.enablesReturnKeyAutomatically = false
                     textField.placeholder = placeholder
-                    if UITraitCollection.current.userInterfaceStyle == .dark {
-                        textField.keyboardAppearance = .dark
+                    if #available(iOS 13.0, *) {
+                        if UITraitCollection.current.userInterfaceStyle == .dark {
+                            textField.keyboardAppearance = .dark
+                        }
+                    } else {
+                        // Fallback on earlier versions
                     }
                 })
             }
