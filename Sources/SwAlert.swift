@@ -20,6 +20,7 @@ public typealias CompletionHandler = ((SwAlertResult) -> Void)
 public enum AlertButtonType {
     case cancel(title: String)
     case other(title: String)
+    case destructive(title: String)
     case textField(text: String, placeholder: String?)
 }
 
@@ -75,6 +76,9 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
         alert.show()
     }
     
+    
+    
+    
     // MARK: - Initializer
     
     public init(title: String?, message: String?) {
@@ -95,6 +99,12 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
         return self
     }
     
+    public func addDestructiveAction(_ buttonTitle: String, _ completion: CompletionHandler? = nil) -> SwAlert {
+        let alertInfo = AlertInfo(type: .destructive(title: buttonTitle), completion: completion)
+        self.alertInfo.append(alertInfo)
+        return self
+    }
+    
     public func addTextField(_ text: String, placeholder: String? = nil) -> SwAlert {
         let alertInfo = AlertInfo(type: .textField(text: text, placeholder: placeholder), completion: nil)
         self.alertInfo.append(alertInfo)
@@ -102,7 +112,11 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
     }
     
     public func show() {
-        self.showAlertController()
+        self.showAlertController(.alert)
+    }
+    
+    public func showAsActionSheet() {
+        self.showAlertController(.actionSheet)
     }
     
     // MARK: - Private Functions
@@ -114,7 +128,7 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
 
 extension SwAlert {
     
-    fileprivate func showAlertController() {
+    fileprivate func showAlertController(_ preferred_style:UIAlertController.Style) {
         if AlertManager.sharedInstance.window.isKeyWindow {
             AlertManager.sharedInstance.alertQueue.append(self)
             return
@@ -123,7 +137,13 @@ extension SwAlert {
             AlertManager.sharedInstance.window.makeKeyAndVisible()
         }
         
-        let alertController = UIAlertController(title: self.title, message: self.message, preferredStyle: .alert)
+        var alertController = UIAlertController(title: self.title == "" ? nil : self.title, message: self.message == "" ? nil : self.message, preferredStyle: preferred_style)
+        
+        // for ipad, override the actionSheet style
+        if let popoverController = alertController.popoverPresentationController {
+            alertController = UIAlertController(title: self.title == "" ? nil : self.title, message: self.message == "" ? nil : self.message, preferredStyle: .alert)
+        }
+        
         
         if let _cancelInfo = self.cancelInfo {
             self.alertInfo.append(_cancelInfo)
@@ -150,10 +170,30 @@ extension SwAlert {
                     info.completion?(.other(inputText: inputText))
                 })
                 alertController.addAction(action)
+            case .destructive(let buttonTitle):
+                let action = UIAlertAction(title: buttonTitle, style: .destructive, handler: { action in
+                    SwAlert.dismiss()
+                    
+                    var inputText: [String] = []
+                    alertController.textFields?.forEach() {
+                        inputText.append($0.text ?? "")
+                    }
+                    info.completion?(.other(inputText: inputText))
+                })
+                alertController.addAction(action)
             case .textField(let text, let placeholder):
                 alertController.addTextField(configurationHandler: { textField in
                     textField.text = text
+                    textField.keyboardType = .numbersAndPunctuation
+                    textField.enablesReturnKeyAutomatically = false
                     textField.placeholder = placeholder
+                    if #available(iOS 13.0, *) {
+                        if UITraitCollection.current.userInterfaceStyle == .dark {
+                            textField.keyboardAppearance = .dark
+                        }
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 })
             }
         }
@@ -164,6 +204,8 @@ extension SwAlert {
             })
             alertController.addAction(action)
         }
+        
+        
         
         AlertManager.sharedInstance.parentController.present(alertController, animated: true, completion: nil)
     }

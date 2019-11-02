@@ -32,18 +32,49 @@ final class ViewController: UIViewController {
             .show()
     }
     
-    @IBAction func tripleButtonAlert() {
-        SwAlert(title: "triple action title", message: "triple action message")
+    @IBAction func destructiveButtonAlert() {
+        SwAlert(title: "destructive action title", message: "destructive action message")
             .addAction("triple action 1") { result in
                 print("triple action 1 completion")
             }
             .addAction("triple action 2") { result in
                 print("triple action 2 completion")
             }
+            .addDestructiveAction("DESTROY!") { result in
+                print("pressed DESTROY! button")
+            }
             .setCancelAction("cancel action") { result in
                 print("cancel triple action completion")
             }
             .show()
+    }
+    
+    @IBAction func actionSheetdoubleButtonAlert() {
+        SwAlert(title: "double action title", message: "double action message")
+            .addAction("double action 1") { result in
+                print("double action 1 completion")
+        }
+        .setCancelAction("cancel action") { result in
+            print("cancel action completion")
+        }
+        .showAsActionSheet()
+    }
+    
+    @IBAction func actionSheetDestructiveButtonAlert() {
+        SwAlert(title: "another destructive action title", message: "destructive action message")
+            .addAction("triple action 1") { result in
+                print("triple action 1 completion")
+        }
+        .addAction("triple action 2") { result in
+            print("triple action 2 completion")
+        }
+        .addDestructiveAction("DESTROY!!!!") { result in
+            print("pressed DESTROY!!!! button")
+        }
+        .setCancelAction("cancel action") { result in
+            print("cancel triple action completion")
+        }
+        .showAsActionSheet()
     }
     
     @IBAction func rollAlert() {
