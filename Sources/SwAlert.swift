@@ -20,6 +20,7 @@ public typealias CompletionHandler = ((SwAlertResult) -> Void)
 public enum AlertButtonType {
     case cancel(title: String)
     case other(title: String)
+    case destructive(title: String)
     case textField(text: String, placeholder: String?)
 }
 
@@ -95,6 +96,12 @@ public final class SwAlert: NSObject, UIAlertViewDelegate {
         return self
     }
     
+    public func addDestructiveAction(_ buttonTitle: String, _ completion: CompletionHandler? = nil) -> SwAlert {
+      let alertInfo = AlertInfo(type: .destructive(title: buttonTitle), completion: completion)
+      self.alertInfo.append(alertInfo)
+      return self
+    }
+    
     public func addTextField(_ text: String, placeholder: String? = nil) -> SwAlert {
         let alertInfo = AlertInfo(type: .textField(text: text, placeholder: placeholder), completion: nil)
         self.alertInfo.append(alertInfo)
@@ -141,6 +148,17 @@ extension SwAlert {
                 alertController.addAction(action)
             case .other(let buttonTitle):
                 let action = UIAlertAction(title: buttonTitle, style: .default, handler: { action in
+                    SwAlert.dismiss()
+                    
+                    var inputText: [String] = []
+                    alertController.textFields?.forEach() {
+                        inputText.append($0.text ?? "")
+                    }
+                    info.completion?(.other(inputText: inputText))
+                })
+                alertController.addAction(action)
+            case .destructive(let buttonTitle):
+                let action = UIAlertAction(title: buttonTitle, style: .destructive, handler: { action in
                     SwAlert.dismiss()
                     
                     var inputText: [String] = []
